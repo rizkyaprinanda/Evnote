@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Gaya untuk Bottom Navigation Bar -->
+    <style name="BottomNavigationStyle">
+        <item name="android:title">120sp</item> <!-- Sesuaikan ukuran teks -->
+        <item name="iconSize">24dp</item> <!-- Sesuaikan ukuran ikon -->
+    </style>
+
+</resources>
