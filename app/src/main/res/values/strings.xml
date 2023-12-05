@@ -1,8 +1,33 @@
 <resources>
-    <string name="app_name">Evnote</string>
+    <string name="app_name">Cinematrix</string>
     <string name="google_map_api_key">AIzaSyCWDNbkL-bB7Vq-vFiv8IJc5S-E_WdPnzo</string>
     <string name="movies_api_key">c91b07124c855f7577ce56962639cd93</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- Deskripsi untuk ikon Facebook -->
+    <string name="facebook_icon_description">Facebook</string>
+
+    <!-- Deskripsi untuk ikon WhatsApp -->
+    <string name="whatsapp_icon_description">WhatsApp</string>
+
+    <!-- Deskripsi untuk ikon Instagram -->
+    <string name="instagram_icon_description">Instagram</string>
+
+    <!-- Deskripsi untuk ilustrasi About -->
+    <string name="about_image_description">Illustration for Movie Database</string>
+
+    <!-- Deskripsi untuk ikon Twitter -->
+    <string name="twitter_icon_description">Twitter</string>
+
+    <!-- Deskripsi untuk ikon SMS -->
+    <string name="sms_icon_description">SMS</string>
+
+    <!-- Deskripsi untuk ikon Gmail -->
+    <string name="gmail_icon_description">Gmail</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

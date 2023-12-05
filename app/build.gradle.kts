@@ -53,6 +53,7 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.preference:preference:1.2.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -61,6 +62,14 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
+    //    Navigation View
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    //  Fragment
+    implementation("androidx.fragment:fragment-ktx:1.5.5")
+
+
     //    Google Maps API
 
     implementation ("com.google.maps.android:android-maps-utils:2.3.0")
@@ -68,6 +77,8 @@ dependencies {
     implementation ("com.google.android.gms:play-services-location:21.0.1")
     implementation ("com.google.maps.android:maps-utils-ktx:3.4.0")
 
+    //  Drawer Layout
+    implementation ("androidx.drawerlayout:drawerlayout:1.1.1")
 
     // ViewModel and LiveData
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
@@ -87,9 +98,6 @@ dependencies {
     // Kotlin Coroutine
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
-    // Navigation Component
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
-    implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
 
     // ViewModel SavedState
     implementation ("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1")

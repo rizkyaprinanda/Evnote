@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/on_primary_dark"
+    tools:context=".view.SettingsFragment">
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"/>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textViewTitle"
+        android:padding="16dp">
+
+        <!-- Group 1: Account -->
+        <TextView
+            android:id="@+id/group1Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Account"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/group1Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/group1Title"
+            android:layout_marginBottom="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/group1Container"
+                >
+                <!-- Edit Profile -->
+                <TextView
+                    android:id="@+id/editProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit Profile"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    android:trackTint="@color/primary"
+                    android:thumbTint="@color/primary"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/group1Container">
+                <!-- Edit Profile -->
+                <TextView
+                    android:id="@+id/changePassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Change Password"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    android:trackTint="@color/primary"
+                    android:thumbTint="@color/primary"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/group1Container">
+                <!-- Edit Profile -->
+                <TextView
+                    android:id="@+id/inviteFriends"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Invite Friends"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_forward_ios_24"
+                    android:trackTint="@color/primary"
+                    android:thumbTint="@color/primary"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!-- Group 2: Notifications -->
+        <TextView
+            android:id="@+id/group2Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/group1Container"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+
+
+        <RelativeLayout
+            android:id="@+id/layout_recommendations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/group2Title"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/recommendationsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommendations"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <Switch
+                android:id="@+id/recommendationsSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:trackTint="@color/primary"
+                android:thumbTint="@color/primary"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_recommendations"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/partnerInfoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Use the Partner's Information"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <Switch
+                android:id="@+id/partnerInfoSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:trackTint="@color/primary"
+                android:thumbTint="@color/primary"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="5dp"
+            android:layout_below="@id/layout_information"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/newMoviesUpdateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Movies Update"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <Switch
+                android:id="@+id/newMoviesUpdateSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:trackTint="@color/primary"
+                android:thumbTint="@color/primary"
+                android:checked="true"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+        <!-- New Movies Launching -->
+        <RelativeLayout
+            android:layout_below="@id/layout_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/newMoviesLaunchingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Movies Launching"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+
+            <Switch
+                android:id="@+id/newMoviesLaunchingSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:trackTint="@color/primary"
+                android:thumbTint="@color/primary"
+                android:checked="true"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

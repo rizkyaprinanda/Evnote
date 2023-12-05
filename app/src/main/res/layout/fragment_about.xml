@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/on_primary_dark"
+    tools:context=".view.AboutFragment">
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Judul About -->
+        <TextView
+            android:id="@+id/aboutTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Cinematrix"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Deskripsi Aplikasi -->
+        <TextView
+            android:id="@+id/aboutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Cinematrix is a platform that aggregates film databases from various countries. This website assists users in discovering trending, popular, currently playing, and highly-rated movies (based on IMDb) by providing trailers, descriptions, and ratings for each film. Users can also contribute by adding new movies to the database."
+            android:textSize="20sp"
+            android:layout_below="@id/aboutTitle"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Gambar Ilustrasi -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_movie_database_illustration"
+        android:contentDescription="@string/about_image_description"
+        android:layout_below="@id/aboutDescription"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

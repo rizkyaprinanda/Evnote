@@ -6,5 +6,10 @@
         <item name="android:title">120sp</item> <!-- Sesuaikan ukuran teks -->
         <item name="iconSize">24dp</item> <!-- Sesuaikan ukuran ikon -->
     </style>
+    <style name="SwitchStyle">
+        <item name="android:thumbTint">@color/primary</item>
+        <!-- Add any other styling attributes you want -->
+    </style>
+
 
 </resources>
