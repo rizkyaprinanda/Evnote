@@ -4,6 +4,9 @@
     <string name="movies_api_key">c91b07124c855f7577ce56962639cd93</string>
     <string name="title_activity_maps">MapsActivity</string>
 
+    <!-- Web Client Api -->
+    <string name="default_web_client_id">40646514438-227onckjiih5ds66l98771np6lsdeol3.apps.googleusercontent.com</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!-- Deskripsi untuk ikon Facebook -->

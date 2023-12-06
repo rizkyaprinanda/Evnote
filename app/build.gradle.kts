@@ -4,9 +4,18 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     id("kotlin-parcelize")
+    id("com.google.gms.google-services")
 }
 
 android {
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("C:\\MyKeyStore\\mykeystore.jks")
+            storePassword = "aceh2712"
+            keyAlias = "Dizky_Store"
+            keyPassword = "aceh2712"
+        }
+    }
     namespace = "com.example.evnote"
     compileSdk = 34
 
@@ -18,6 +27,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig = signingConfigs.getByName("debug")
     }
 
     buildTypes {
@@ -53,10 +63,19 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.preference:preference:1.2.1")
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("com.google.firebase:firebase-auth:22.3.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    //      Firebase
+    implementation("com.google.firebase:firebase-auth-ktx:22.3.0")
+    implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+
+    implementation("com.google.firebase:firebase-analytics")
 
     //    Dependencies Glide
     implementation ("com.github.bumptech.glide:glide:4.12.0")
@@ -68,6 +87,10 @@ dependencies {
 
     //  Fragment
     implementation("androidx.fragment:fragment-ktx:1.5.5")
+
+    //  Lottie Files & Coroutines
+    implementation ("com.airbnb.android:lottie:3.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 
 
     //    Google Maps API
