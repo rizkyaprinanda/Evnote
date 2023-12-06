@@ -1,11 +1,17 @@
 package com.example.evnote.view
 
+import android.content.res.ColorStateList
+import android.graphics.PorterDuff
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.evnote.R
 import com.example.evnote.adapter.MovieAdapter
 import com.example.evnote.databinding.FragmentNowPlayingBinding
 import com.example.evnote.model.Movie
@@ -19,6 +25,8 @@ class NowPlayingFragment : Fragment() {
     private lateinit var binding: FragmentNowPlayingBinding
     private lateinit var adapter1: MovieAdapter
     private lateinit var adapter2: MovieAdapter
+    private lateinit var progressBar: ProgressBar
+    private lateinit var progressBar2: ProgressBar
 
     companion object {
         fun newInstance(): NowPlayingFragment {
@@ -40,19 +48,42 @@ class NowPlayingFragment : Fragment() {
         adapter1 = MovieAdapter(requireContext(), arrayListOf())
         adapter2 = MovieAdapter(requireContext(), arrayListOf())
 
+        // Inisialisasi ProgressBar
+        progressBar = binding.progressBar
+        progressBar2 = binding.progressBar2
+
+        // Ganti dengan warna yang diinginkan
+        val color = ContextCompat.getColor(requireContext(), R.color.yellow)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            progressBar.indeterminateTintList = ColorStateList.valueOf(color)
+            progressBar2.indeterminateTintList = ColorStateList.valueOf(color)
+        } else {
+            val mode = PorterDuff.Mode.SRC_IN
+            progressBar.indeterminateDrawable.setColorFilter(color, mode)
+            progressBar2.indeterminateDrawable.setColorFilter(color, mode)
+        }
+
         binding.rvMovie.adapter = adapter1
         binding.rvMovie.setHasFixedSize(true)
 
         binding.rvMovie2.adapter = adapter2
         binding.rvMovie2.setHasFixedSize(true)
 
-        remoteGetPopularMovies(adapter1)
-        remoteGetHeroMovies(adapter2)
+        // Show progress bar before making network requests
+        progressBar.visibility = View.VISIBLE
+        progressBar2.visibility = View.VISIBLE
+
+        remoteGetPopularMovies(adapter1, binding.progressBar)
+        remoteGetHeroMovies(adapter2, binding.progressBar2)
     }
 
-    private fun remoteGetPopularMovies(adapter: MovieAdapter) {
+    private fun remoteGetPopularMovies(adapter: MovieAdapter, progressBar: ProgressBar) {
         MovieClient.movieService.getNowPlayingMovies().enqueue(object : Callback<Movies> {
             override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                // Hide progress bar on response
+                progressBar.visibility = View.GONE
+
                 if (response.isSuccessful) {
                     val data = response.body()?.results
                     Log.d("MovieResponse", data.toString())
@@ -61,14 +92,20 @@ class NowPlayingFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<Movies>, t: Throwable) {
+                // Hide progress bar on failure
+                progressBar.visibility = View.GONE
+
                 Log.d("Error", "" + t.stackTraceToString())
             }
         })
     }
 
-    private fun remoteGetHeroMovies(adapter: MovieAdapter) {
+    private fun remoteGetHeroMovies(adapter: MovieAdapter, progressBar: ProgressBar) {
         MovieClient.movieService.getHeroMovies().enqueue(object : Callback<Movies> {
             override fun onResponse(call: Call<Movies>, response: Response<Movies>) {
+                // Hide progress bar on response
+                progressBar.visibility = View.GONE
+
                 if (response.isSuccessful) {
                     val data = response.body()?.results
                     Log.d("MovieResponse", data.toString())
@@ -77,6 +114,9 @@ class NowPlayingFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<Movies>, t: Throwable) {
+                // Hide progress bar on failure
+                progressBar.visibility = View.GONE
+
                 Log.d("Error", "" + t.stackTraceToString())
             }
         })
