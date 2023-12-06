@@ -2,20 +2,19 @@ package com.example.evnote.view
 
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.Toast.LENGTH_SHORT
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.fragment.app.Fragment
 import com.example.evnote.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -42,7 +41,7 @@ class MapsFragment2 : Fragment(), OnMapReadyCallback {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
 
         // Request location permission
-        requestLocationPermission.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
+        requestLocationPermission.launch(Manifest.permission.ACCESS_FINE_LOCATION)
 
         return view
     }
@@ -76,7 +75,10 @@ class MapsFragment2 : Fragment(), OnMapReadyCallback {
                 // Location found, use location.latitude and location.longitude
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 mMap.addMarker(MarkerOptions().position(currentLatLng).title("My Location"))
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLatLng))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18f))
+
+                // Show a toast message
+                Toast.makeText(requireContext(), "Here is your location", Toast.LENGTH_SHORT).show()
             }
     }
 
@@ -87,7 +89,7 @@ class MapsFragment2 : Fragment(), OnMapReadyCallback {
             // Add a marker in Sydney and move the camera
             val sydney = LatLng(-34.0, 151.0)
             mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 10f))
 
         } catch (e: SecurityException) {
             e.printStackTrace()

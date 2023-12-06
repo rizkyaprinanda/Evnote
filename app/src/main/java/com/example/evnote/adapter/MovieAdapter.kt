@@ -1,6 +1,7 @@
 package com.example.evnote.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.example.evnote.R
 import com.example.evnote.model.Movie
+import com.example.evnote.view.DetailMovieActivity
 import com.example.evnote.view.HomeFragment
 
 class MovieAdapter(
@@ -91,8 +93,11 @@ class MovieAdapter(
                 })
 
             layoutCard.setOnClickListener {
-                Toast.makeText(context, selectedMovie.title, Toast.LENGTH_SHORT).show()
+                val intent = Intent(context, DetailMovieActivity::class.java)
+                intent.putExtra("movie", selectedMovie)
+                context.startActivity(intent)
             }
+
 
 
             itemView.setOnClickListener {
@@ -115,5 +120,8 @@ class MovieAdapter(
     fun setData(data: List<Movie>) {
         dataList = data
         notifyDataSetChanged()
+    }
+    fun setOnItemClickListener(listener: (Movie) -> Unit) {
+        itemClickListener = listener
     }
 }
