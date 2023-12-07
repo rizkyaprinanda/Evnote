@@ -171,7 +171,7 @@ class HomeFragment : Fragment() {
             if(searchText.text.isEmpty()){
                 binding.tvMost.visibility = View.VISIBLE
                 binding.tvOnTrend.visibility = View.VISIBLE
-                adapter1.setData(filteredData)
+                adapter1.setData(emptyList())
             }
 
         } else {
@@ -179,12 +179,13 @@ class HomeFragment : Fragment() {
             binding.tvMost.visibility = View.GONE
             binding.tvOnTrend.visibility = View.GONE
             binding.rvMovie.visibility = View.VISIBLE
-            binding.rvMovie2.visibility = View.VISIBLE
+            binding.rvMovie2.visibility = View.GONE
             adapter1.setData(filteredData)
 
             if(searchText.text.isEmpty()){
                 binding.tvMost.visibility = View.VISIBLE
                 binding.tvOnTrend.visibility = View.VISIBLE
+                binding.rvMovie2.visibility = View.VISIBLE
                 adapter1.setData(filteredData)
             }
         }
