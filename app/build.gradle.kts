@@ -125,5 +125,9 @@ dependencies {
     // ViewModel SavedState
     implementation ("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1")
 
+    //  Swipe Refresh Layout
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+
 
 }

@@ -38,7 +38,7 @@ class SplashScreenActivity : AppCompatActivity() {
             }
         } else {
             CoroutineScope(Dispatchers.Main).launch {
-                delay(5000L)
+                delay(500L)
                 startLoginActivity()
             }
         }

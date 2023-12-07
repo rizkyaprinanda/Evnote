@@ -1,10 +1,12 @@
 package com.example.evnote.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import com.example.evnote.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,6 +36,14 @@ class SettingsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(requireContext(), HomeActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+
+            }
+        })
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_settings, container, false)
     }

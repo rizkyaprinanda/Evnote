@@ -1,198 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_container_home"
+    android:id="@+id/swipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.HomeFragment">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
+        android:id="@+id/fragment_container_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/edtSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:background="@drawable/radiussearch"
-            android:drawableLeft="@drawable/search"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Search Movie..."
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="15dp"
-            android:paddingLeft="10dp"
-            android:textColor="#FBF7F7"
-            android:textColorHint="#BBBBC4"
-            android:textSize="12sp"
-            app:layout_constraintCircleRadius="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints" />
 
-        <LinearLayout
-            android:id="@+id/llSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/edtSearch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
 
-        </LinearLayout>
-        <!--    <TextView-->
-        <!--        android:id="@+id/tvTitle"-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_margin="20dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:textSize="18sp"-->
-        <!--        android:text="Do you want to find your favorite movie?"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/llSearch"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"/>-->
-
-        <ScrollView
-            android:id="@+id/svBooks"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/edtSearch"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/radiussearch"
+                android:drawableLeft="@drawable/search"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Search Movie..."
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="15dp"
+                android:paddingLeft="10dp"
+                android:textColor="#FBF7F7"
+                android:textColorHint="#BBBBC4"
+                android:textSize="12sp"
+                app:layout_constraintCircleRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_margin="10dp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:text="Most Popular Movies"
-                        android:textSize="24dp"/>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvMovie"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:listitem="@layout/items_movies"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        android:orientation="horizontal"
-                        app:spanCount="1"
-                        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-                        >
-
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                    <TextView
-                        android:id="@+id/tvNoResult"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Sorry, the movie you're looking for is not available."
-                        android:textSize="20sp"
-                        android:padding="10dp"
-                        android:visibility="gone"
-                        android:textAlignment="center"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rvMain" />
-
-
-
-                    <ProgressBar
-                        android:id="@+id/progressBar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:flow_horizontalAlign="center"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_margin="10dp"
-                        android:textColor="@color/primary"
-                        android:fontFamily="@font/montserrat_bold"
-                        android:text="On Trending"
-                        android:textSize="24dp"/>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rvMovie2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-                        app:spanCount="2"
-                        tools:listitem="@layout/items_movies">
-
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                    <TextView
-                        android:id="@+id/tvNoResult2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Sorry, the movie you're looking for is not available."
-                        android:textSize="20sp"
-                        android:padding="10dp"
-                        android:visibility="gone"
-                        android:textAlignment="center"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rvMain" />
-
-
-
-                    <ProgressBar
-                        android:id="@+id/progressBar2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:flow_horizontalAlign="center"
-                        android:visibility="gone"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
-
-                </LinearLayout>
-
-
-
+                android:id="@+id/llSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtSearch">
 
             </LinearLayout>
 
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/svMovies"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtSearch">
 
-        </ScrollView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-</FrameLayout>
+                        <TextView
+                            android:id="@+id/tvMost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:padding="10dp"
+                            android:text="Most Popular Movies"
+                            android:textColor="@color/primary"
+                            android:textSize="24dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvMovie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                            app:spanCount="1"
+                            tools:listitem="@layout/items_movies">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <TextView
+                            android:id="@+id/tvNoResult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Sorry, the movie you're looking for is not available."
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rvMain" />
+
+
+                        <ProgressBar
+                            android:id="@+id/progressBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:flow_horizontalAlign="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvOnTrend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:padding="10dp"
+                            android:text="On Trending"
+                            android:textColor="@color/primary"
+                            android:textSize="24dp" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvMovie2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                            app:spanCount="2"
+                            tools:listitem="@layout/items_movies">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+
+                        <TextView
+                            android:id="@+id/tvNoResult2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:text="Sorry, the movie you're looking for is not available."
+                            android:textAlignment="center"
+                            android:textSize="20sp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rvMain" />
+
+
+                        <ProgressBar
+                            android:id="@+id/progressBar2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:flow_horizontalAlign="center"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

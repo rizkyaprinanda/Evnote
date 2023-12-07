@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -92,6 +93,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     replaceFragment(HomeFragment.newInstance())
                     return@setOnNavigationItemSelectedListener true
                 }
+                R.id.itemTrending -> {
+                    replaceFragment(HeroFragment.newInstance())
+                    return@setOnNavigationItemSelectedListener true
+                }
                 R.id.itemPopular -> {
                     replaceFragment(PopularFragment.newInstance())
                     return@setOnNavigationItemSelectedListener true
@@ -117,17 +122,29 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         Log.d("Navigation", "Item selected: ${item.title} (ID: ${item.itemId})")
+
+        // Sembunyikan BottomNavigationView
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+
         when (item.itemId) {
-            R.id.nav_home -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment()).commit()
-            R.id.nav_maps -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, MapsFragment2()).commit()
-            R.id.nav_settings -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, SettingsFragment()).commit()
-            R.id.nav_about -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, AboutFragment()).commit()
-            R.id.nav_share -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ShareFragment()).commit()
+            R.id.nav_home -> replaceFragment(HomeFragment())
+            R.id.nav_maps -> {
+                bottomNavigation.visibility = View.GONE
+                replaceFragment(MapsFragment2())
+            }
+            R.id.nav_settings -> {
+                bottomNavigation.visibility = View.GONE
+                replaceFragment(SettingsFragment())
+            }
+            R.id.nav_about -> {
+                bottomNavigation.visibility = View.GONE
+                replaceFragment(AboutFragment())
+            }
+            R.id.nav_share -> {
+                bottomNavigation.visibility = View.GONE
+                replaceFragment(ShareFragment())
+            }
             R.id.nav_logout -> {
                 Log.d("Navigation", "Logout selected")
                 val user = mAuth.currentUser
@@ -143,6 +160,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 
     private fun signOutWithProgressBar() {
         Log.d("Logout", "Sign out process started")
@@ -171,12 +190,5 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            onBackPressedDispatcher.onBackPressed()
-        }
-    }
+
 }

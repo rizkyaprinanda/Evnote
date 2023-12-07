@@ -1,5 +1,6 @@
 package com.example.evnote.view
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.os.Build
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.evnote.R
@@ -44,6 +46,15 @@ class TopRatedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(requireContext(), HomeActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+
+            }
+        })
 
         adapter1 = MovieAdapter(requireContext(), arrayListOf())
         adapter2 = MovieAdapter(requireContext(), arrayListOf())

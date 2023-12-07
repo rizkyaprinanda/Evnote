@@ -6,6 +6,12 @@
         android:title="Home"
         android:titleTextColor="?attr/colorOnSecondary"/>
     <item
+        android:id="@+id/itemTrending"
+        android:icon="@drawable/trending"
+        android:title="Trending"
+        android:titleTextColor="?attr/colorOnSecondary"
+        android:visible="true" />
+    <item
         android:id="@+id/itemPopular"
         android:icon="@drawable/popular_icon"
         android:title="Popular"
