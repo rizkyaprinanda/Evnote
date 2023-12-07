@@ -1,5 +1,6 @@
 package com.example.evnote.view
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.os.Build
@@ -66,17 +67,11 @@ class NowPlayingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
-
             override fun handleOnBackPressed() {
-                if (!doubleBackPressedOnce) {
-                    Toast.makeText(requireContext(), "Press again to exit", Toast.LENGTH_SHORT).show()
-                    doubleBackPressedOnce = true
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        doubleBackPressedOnce = false
-                    }, 2000)
-                } else {
-                    requireActivity().finish()
-                }
+                val intent = Intent(requireContext(), HomeActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+
             }
         })
 
