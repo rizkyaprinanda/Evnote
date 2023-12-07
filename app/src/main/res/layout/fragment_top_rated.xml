@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_container_home"
     android:layout_width="match_parent"
@@ -8,9 +9,6 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background">
@@ -48,18 +46,9 @@
             app:layout_constraintEnd_toEndOf="parent">
 
         </LinearLayout>
-        <!--    <TextView-->
-        <!--        android:id="@+id/tvTitle"-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_margin="20dp"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:textSize="18sp"-->
-        <!--        android:text="Do you want to find your favorite movie?"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/llSearch"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"/>-->
 
-        <ScrollView
+
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/svBooks"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -78,15 +67,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
+                        android:id="@+id/tvTop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_margin="10dp"
-                        android:textColor="@color/primary"
                         android:fontFamily="@font/montserrat_bold"
+                        android:padding="10dp"
                         android:text="Top Rated Movies"
-                        android:textSize="24dp"/>
+                        android:textColor="@color/primary"
+                        android:textSize="24dp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvMovie"
@@ -112,6 +103,7 @@
                         android:textSize="20sp"
                         android:padding="10dp"
                         android:visibility="gone"
+                        android:textColor="@color/white"
                         android:textAlignment="center"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
@@ -135,15 +127,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <TextView
+                        android:id="@+id/tvOnTrend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_margin="10dp"
-                        android:textColor="@color/primary"
                         android:fontFamily="@font/montserrat_bold"
+                        android:padding="10dp"
                         android:text="On Trending"
-                        android:textSize="24dp"/>
+                        android:textColor="@color/primary"
+                        android:textSize="24dp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvMovie2"
@@ -169,6 +163,7 @@
                         android:textSize="20sp"
                         android:padding="10dp"
                         android:visibility="gone"
+                        android:textColor="@color/white"
                         android:textAlignment="center"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="parent"
@@ -194,7 +189,7 @@
             </LinearLayout>
 
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

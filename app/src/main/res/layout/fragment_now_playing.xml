@@ -108,6 +108,7 @@
                             android:padding="10dp"
                             android:text="Sorry, the movie you're looking for is not available."
                             android:textAlignment="center"
+                            android:textColor="@color/white"
                             android:textSize="20sp"
                             android:visibility="gone"
                             app:layout_constraintEnd_toEndOf="parent"
